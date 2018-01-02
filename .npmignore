@@ -113,3 +113,11 @@ upload_file/
 
 .tags
 .tags_sorted_by_file
+
+.babelrc
+src/
+config/
+public/
+scripts/
+test/
+.gitignore

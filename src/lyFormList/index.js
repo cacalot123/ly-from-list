@@ -8,7 +8,17 @@ import {formLayout} from './formListGrid';
  * @extends React.Component
  */
 
-const FormList = WrappedComponent => class extends Component {
+class FormList extends Component {
+  /**
+   * 初始化表单
+   * @module getFields
+   * @return chindren form子节点
+   * **/
+  static getFields() {
+    const children = [11, 22];
+    return children;
+  }
+
   /**
    * 改变post 值s
    * **/
@@ -25,6 +35,7 @@ const FormList = WrappedComponent => class extends Component {
       expand: '1',
       showButton: true
     };
+    t.handleSubmit = t.handleSubmit.bind(t);
     t.handleReset = t.handleReset.bind(t);
     t.toggle = t.toggle.bind(t);
   }
@@ -38,7 +49,7 @@ const FormList = WrappedComponent => class extends Component {
     const t = this;
     const children = [];
     children.push(
-      <Button icon="search" htmlType="submit" type="primary" size="large" onClick={()=>t.handleSubmit()}>查询</Button>
+      <Button icon="search" htmlType="submit" type="primary" size="large" onClick={t.handleSubmit}>查询</Button>
     );
     children.push(
       <Button icon="sync" size="large" onClick={t.handleReset}>重置</Button>
@@ -49,8 +60,9 @@ const FormList = WrappedComponent => class extends Component {
   formExpandButton() {
     const t = this;
     return <a style={{marginLeft: 8, fontSize: 12}} onClick={t.toggle}>
-      全部 <Icon type={this.state.expand === '1' ? 'up' : 'down'}/>
+      全部 <Icon type={this.state.expand == '1' ? 'up' : 'down'}/>
     </a>
+
   }
 
   /**
@@ -59,20 +71,19 @@ const FormList = WrappedComponent => class extends Component {
    * **/
   toggle() {
     const t = this;
-    t.setState({expand: t.state.expand === '1' ? '2' : '1'});
+    t.setState({expand: t.state.expand == '1' ? '2' : '1'});
   }
 
   /**
    * 提交查询
    * @module handleSubmit
    * **/
-  handleSubmit = (e) => {
-    //alert(111)
+  handleSubmit(e) {
     const t = this;
-    //e.preventDefault();
+    e.preventDefault();
     t.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        const val = FormList.postChange(values); //参数修改
+        const val = t.postChange(values); //参数修改
         t.props.submit(val, 1);
         t.setState({
           expand: '0'
@@ -93,10 +104,9 @@ const FormList = WrappedComponent => class extends Component {
     t.props.form.resetFields();
   }
 
-
   render() {
     const t = this;
-    //const count = t.getFields() ? t.getFields().length : 0;
+    const count = t.getFields().length;
     // const handleHide = t.state.expand ? 'default-form show-form' : 'default-form';
     const handleHide = (() => {
       switch (t.state.expand) {
@@ -114,16 +124,11 @@ const FormList = WrappedComponent => class extends Component {
       float: 'left',
       lineHeight: '32px'
     }
-    //const formExpandButtonBody = (count > 6 || t.state.expand === '0') ? t.formExpandButton() : '';
-    const formExpandButtonBody = '';
-    const props = {
-      ...this.props,
-      handleSubmit:this.handleSubmit
-    }
+    const formExpandButtonBody = (count > 6 || t.state.expand == '0') ? t.formExpandButton() : '';
     return (
-      <Card bordered={false} noHovering className="rsFormList" bodyStyle={{padding: 0}}>
+      <Card bordered={false} noHovering className="rsFormList" bodyStyle={{ padding: 0 }}>
         <Form>
-          <Row className={handleHide} gutter={formLayout.gutter}><WrappedComponent text={333} {...props}/></Row>
+          <Row className={handleHide} gutter={formLayout.gutter}>{t.getFields()}</Row>
           <Row type="flex" justify="center">
             <Col>
               <div className="form-button-layout" style={expandStyle}>{t.formButtonLayout()}</div>
