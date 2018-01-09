@@ -49,10 +49,10 @@ class FormList extends Component {
     const t = this;
     const children = [];
     children.push(
-      <Button icon="search" htmlType="submit" type="primary" size="large" onClick={t.handleSubmit}>查询</Button>
+      <Button icon="search" htmlType="submit" type="primary" size="large" onClick={t.handleSubmit}>查询2</Button>
     );
     children.push(
-      <Button icon="sync" size="large" onClick={t.handleReset}>重置</Button>
+      <Button icon="sync" size="large" onClick={t.handleReset}>重置1</Button>
     );
     return children;
   }

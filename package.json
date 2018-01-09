@@ -1,6 +1,6 @@
 {
   "name": "ly-form-list",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "main": "./build/static/js/main.js",
   "dependencies": {
     "autoprefixer": "7.1.6",
@@ -90,7 +90,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "antd": "^3.0.2",
+    "antd": "^2.13.11",
     "babel-plugin-import": "^1.6.3",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-env": "^1.6.1",
@@ -98,6 +98,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "less": "^3.0.0-alpha.3",
-    "less-loader": "^4.0.5"
+    "less-loader": "^4.0.5",
+    "prop-types": "^15.6.0"
   }
 }
