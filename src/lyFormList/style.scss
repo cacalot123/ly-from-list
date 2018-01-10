@@ -1,4 +1,8 @@
-@import "../layout/base";
+
+//space
+$module-space-base: 16px;
+$module-space-lg: $module-space-base*1.5;
+$module-space-sm: $module-space-base/2;
 
 .rsFormList {
   margin-bottom: $module-space-base;
@@ -18,7 +22,7 @@
     height: auto;
   }
   .hidden-form{
-    height: 0px;
+    height: 0;
     overflow: hidden;
   }
   .hidden-form:after {

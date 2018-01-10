@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Card, Col, Form, Icon, Row} from 'antd';
 import {formLayout} from './formListGrid';
+import './style.scss';
 
 /**
  * 交易信息查询表单

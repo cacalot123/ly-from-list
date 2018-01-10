@@ -212,7 +212,11 @@ module.exports = {
             }, {
               loader: "less-loader" // compiles Less to CSS
             }]
-          }
+          },
+          {
+            test: /\.scss$/,
+            loaders: ['style-loader', 'css-loader', 'sass-loader'],
+          },
         ],
       },
       // ** STOP ** Are you adding a new loader?
