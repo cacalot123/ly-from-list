@@ -1,7 +1,7 @@
 # ly-form-list
 
 ## function
-#### getFields
+### getFields
 - 初始化表单 返回 form子节点
 - 调用 公用 grid 标准 <a href="#formItemLayoutGrid">formItemLayoutGrid</a> ,<a href="#formLayout">formLayout</a>
 例如
@@ -35,7 +35,7 @@
     );
     return children;
 ```
-#### postChange
+### postChange
 - 改变提交给后端的参数【可选】
 
 例如
@@ -51,9 +51,26 @@
   }
 ```
 
-### grid object
+### formButtonLayout
+- 默认有提交和重置按钮，可按照需求继续添加，或者重置去本来按钮
+```
+formButtonLayout() {
+    const t = this;
+    const children = super.formButtonLayout();
+    children.push(
+      <Button size="large" onClick={() => t.exportTradePreDownLoad()}>导出待结算单</Button>
+    );
+    children.push(
+      <Button size="large" onClick={t.tradeJustExportTradeList}>导出交易明细</Button>
+    );
+    return children;
+  }
+```
+
+
+## grid object
 - 根据ui标准设置的每个list 间距 和大小 等
-#### <a name="formItemLayoutGrid">formItemLayoutGrid</a>
+### <a name="formItemLayoutGrid">formItemLayoutGrid</a>
 24 栅格  
 label 占6格
 
@@ -76,13 +93,14 @@ export const formItemLayoutGrid = {
      }
    };
 ```
-#### <a name="formLayout">formLayout</a>
+### <a name="formLayout">formLayout</a>
 一行3个 每个占8格 每个间距 为16
 ```
 export const formLayout = {
   grid: 8,
   gutter: 16
-
 };
 ```
+
+
 ### 0.0.27 支持sass
