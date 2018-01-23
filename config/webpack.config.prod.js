@@ -349,7 +349,7 @@ module.exports = {
     child_process: 'empty',
   },
   externals:[{
-    'antd':true,
+    'antd':'antd',
     'react': true,
     'react-dom': true
   }]
