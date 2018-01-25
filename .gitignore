@@ -89,6 +89,7 @@ bower_components/
 *.log
 
 dist/
+build/
 rev/
 target/
 */target/
