@@ -1,6 +1,11 @@
 # ly-form-list
 表单form
 
+## Install
+```
+$ npm install ly-form-list --save
+```
+
 ## Class ly-form-list
 
 ## function

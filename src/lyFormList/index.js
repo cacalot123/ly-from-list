@@ -16,17 +16,16 @@ class FormList extends Component {
    * @return chindren form子节点
    * **/
   static getFields() {
-    const children = [11, 22];
+    const children = [];
     return children;
   }
 
   /**
    * 改变post 值s
    * **/
-  static postChange(values) {
-    const value = [11, 22];
-    value[0] = values;
-    return value;
+   static postChange(values) {
+    console.log('basePostChange')
+    return values;
   }
 
   constructor(props) {
@@ -85,6 +84,7 @@ class FormList extends Component {
     t.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         const val = t.postChange(values); //参数修改
+        console.log('val', val)
         t.props.submit(val, 1);
         t.setState({
           expand: '0'
@@ -127,7 +127,7 @@ class FormList extends Component {
     }
     const formExpandButtonBody = (count > 6 || t.state.expand == '0') ? t.formExpandButton() : '';
     return (
-      <Card bordered={false} noHovering className="rsFormList" bodyStyle={{ padding: 0 }}>
+      <Card bordered={false} noHovering className="rsFormList" bodyStyle={{padding: 0}}>
         <Form>
           <Row className={handleHide} gutter={formLayout.gutter}>{t.getFields()}</Row>
           <Row type="flex" justify="center">
