@@ -103,6 +103,9 @@ class FormList extends Component {
   handleReset() {
     const t = this;
     t.props.form.resetFields();
+    t.setState({
+      expand: '1'
+    });
   }
 
   render() {
