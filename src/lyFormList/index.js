@@ -21,7 +21,7 @@ class FormList extends Component {
   }
 
   /**
-   * 改变post 值s
+   * 改变post
    * **/
    static postChange(values) {
     console.log('basePostChange')
