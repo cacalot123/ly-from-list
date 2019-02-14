@@ -4,7 +4,7 @@ import {formLayout} from './formListGrid';
 import './style.scss';
 
 /**
- * 交易信息查询表单1122222211
+ * 交易信息查询表单11222222112222222
  * @class FormList
  * @extends React.Component
  */
